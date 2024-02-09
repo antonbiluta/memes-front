@@ -1,0 +1,29 @@
+kind: pipeline
+type: docker
+name: default
+
+trigger:
+  branch:
+    - main
+  event:
+    - deployment
+    - push
+
+steps:
+  - name: stop-previous-front
+    image: docker
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker stop memes-app-front || true
+      - docker rm memes-app-front || true
+
+  - name: build-and-deploy
+    image: docker
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - docker build -t memes-front-image .
+      - docker run -d -p 39005:3000 --name memes-app-front memes-front-image

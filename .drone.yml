@@ -27,3 +27,9 @@ steps:
     commands:
       - docker build -t memes-front-image .
       - docker run -d -p 39005:3000 --name memes-app-front memes-front-image
+
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock

@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MemePage from './pages/MemePage';
 
 function App() {
   return (
-    <div className="App">
+    <>
+    {/* <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +22,13 @@ function App() {
         </a>
       </header>
     </div>
+    <MemesList /> */}
+    <Router>
+        <Routes>
+          <Route path="/memes/:chatPrefix" element={<MemePage/>}/>
+        </Routes>
+    </Router>
+    </>
   );
 }
 

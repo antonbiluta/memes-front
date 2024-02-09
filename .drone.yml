@@ -26,7 +26,7 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker build -t memes-front-image .
-      - docker run -d -p 39005:3000 --name memes-app-front memes-front-image
+      - docker run -d -p 39005:3000 --add-host=host.docker.internal:host-gateway --name memes-app-front memes-front-image
 
 
 volumes:

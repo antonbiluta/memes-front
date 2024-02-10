@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:39004/api'
+const API_URL = 'http://localhost:8080/api'
 
 export const fetchMemes = async (chatPrefix) => {
     try {

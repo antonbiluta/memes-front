@@ -1,9 +1,8 @@
-const host = location.hostname;
-const port = process.env.REACT_APP_BACKEND_PORT
-const api_path = process.env.REACT_APP_BACKEND_API_PATH
-const BACKEND_API_PATH = `${host}:${port}${api_path}`;
-
 export const fetchMemes = async (chatPrefix) => {
+    const host = window.location.hostname;
+    const port = process.env.REACT_APP_BACKEND_PORT;
+    const api_path = process.env.REACT_APP_BACKEND_API_PATH;
+    const BACKEND_API_PATH = `${host}:${port}${api_path}`;
     try {
         const response = await fetch(`${BACKEND_API_PATH}/memes/${chatPrefix}/last?limit=5`);
         if (!response.ok) {

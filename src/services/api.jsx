@@ -1,8 +1,6 @@
-const API_URL = 'http://172.18.0.3:8080/api'
-
 export const fetchMemes = async (chatPrefix) => {
     try {
-        const response = await fetch(`${API_URL}/memes/${chatPrefix}/last?limit=5`);
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_API_URL}/memes/${chatPrefix}/last?limit=5`);
         if (!response.ok) {
             throw new Error('Failed to fetch memes');
         }

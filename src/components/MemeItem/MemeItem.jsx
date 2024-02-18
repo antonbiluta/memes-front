@@ -4,10 +4,10 @@ import './MemeItem.css'
 const MemeItem = ({ meme }) => {
     return (
         <div className="meme-item" key={meme.id}>
-            <p className="author">{`Мем прислал `}<a href={`https://t.me/${meme.author}`} target="_blank" rel="noopener noreferrer">{`@${meme.author}`}</a></p>
+            <p className="author">{`Мем прислал `}<a href={`https://t.me/${meme.username}`} target="_blank" rel="noopener noreferrer">{`@${meme.username}`}</a></p>
             <div className="media-content">
-                {meme.mediaType === 'image' && <img src={`data:image/png;base64,${meme.media}`} alt="Meme" />}
-                {meme.mediaType === 'video' && <video controls><source src={`data:video/mp4;base64,${meme.media}`} type="video/mp4" /></video>}
+                {meme.fileType.toLowerCase() === 'image' && <img src={`https://minio-back.biluta.ru/${meme.filePath}`} alt="Meme" />}
+                {meme.fileType.toLowerCase() === 'video' && <video controls><source src={`https://minio-back.biluta.ru${meme.filePath}`} type="video/mp4" /></video>}
             </div>
         </div>
     );

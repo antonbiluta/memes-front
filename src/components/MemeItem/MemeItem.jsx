@@ -4,7 +4,7 @@ import './MemeItem.css'
 const MemeItem = ({ meme }) => {
     return (
         <div className="meme-item" key={meme.id}>
-            <p className="author">{`Мем прислал `}<a href={`https://t.me/${meme.username}`} target="_blank" rel="noopener noreferrer">{`@${meme.username}`}</a></p>
+            <p className="author">{`Мем прислал `}<a href={`${meme.userLink}`} target="_blank" rel="noopener noreferrer">{`@${meme.username}`}</a></p>
             <div className="media-content">
 
             { meme.fileType.toLowerCase() === 'image' ? (

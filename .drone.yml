@@ -35,7 +35,7 @@ steps:
         - ${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}
         - ${DRONE_BRANCH}-latest
 
-    - name: deploy
+  - name: deploy
     image: alpine/helm:3.5.4
     environment:
       IMAGE_TAG: ${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}

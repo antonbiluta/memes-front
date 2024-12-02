@@ -1,35 +1,48 @@
 kind: pipeline
-type: docker
-name: default
+type: kubernetes
+name: build-deploy-dev
 
 trigger:
   branch:
-    - master
+    - dev
   event:
-    - deployment
     - push
+    - custom
+
+globals:
+  - &docker_creds
+    username:
+      from_secret: registry_robot_name
+    password:
+      from_secret: registry_robot_token
+  - &kuber_creds
+    kubernetes_token:
+      from_secret: k3s_token
+    api_server:
+      from_secret: k3s_uri
+    namespace:
+      from_secret: app_namespace
 
 steps:
-  - name: stop-previous-front
-    image: docker
-    volumes:
-      - name: dockersock
-        path: /var/run/docker.sock
+
+  - name: build
+    image: plugins/docker
+    settings:
+      <<: *docker_creds
+      registry: harbor.biluta.ru
+      repo: harbor.biluta.ru/office-memes/memes-front
+      tags:
+        - ${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}
+        - ${DRONE_BRANCH}-latest
+
+    - name: deploy
+    image: alpine/helm:3.5.4
+    environment:
+      IMAGE_TAG: ${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}
+      SERVICE_NAME: memes-front
+      REGISTRY_URL: harbor.biluta.ru
+      REGISTRY_PATH: office-memes
+      KUBE_NS: biluta-memes-dev
+      <<: *kuber_creds
     commands:
-      - docker stop memes-app-front || true
-      - docker rm memes-app-front || true
-
-  - name: build-and-deploy
-    image: docker
-    volumes:
-      - name: dockersock
-        path: /var/run/docker.sock
-    commands:
-      - docker build -t memes-front-image .
-      - docker run -d -p 39005:3000 --network=memes-network --name memes-app-front memes-front-image
-
-
-volumes:
-  - name: dockersock
-    host:
-      path: /var/run/docker.sock
+      - helm upgrade -i memes-front-${DRONE_BRANCH} helm --set image.tag=${DRONE_BRANCH}-${DRONE_BUILD_NUMBER} -f helm/values.${DRONE_BRANCH}.yaml -n biluta-memes-dev

@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('./assets/fonts/PPNeueMachina-InktrapLight.otf') format('opentype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('./assets/fonts/PPNeueMachina-InktrapLightItalic.otf') format('opentype');
+    font-weight: 300; /* Light Italic */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('./assets/fonts/PPNeueMachina-InktrapRegular.otf') format('opentype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('./assets/fonts/PPNeueMachina-InktrapRegularItalic.otf') format('opentype');
+    font-weight: 400; /* Regular Italic */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('./assets/fonts/PPNeueMachina-InktrapUltrabold.otf') format('opentype');
+    font-weight: 800; /* Ultra Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('./assets/fonts/PPNeueMachina-InktrapUltraboldItalic.otf') format('opentype');
+    font-weight: 800; /* Ultra Bold Italic */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neue Machina Plain';
+    src: url('./assets/fonts/PPNeueMachina-PlainLight.otf') format('opentype');
+    font-weight: 300; /* Plain Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina Plain';
+    src: url('./assets/fonts/PPNeueMachina-PlainLightItalic.otf') format('opentype');
+    font-weight: 300; /* Plain Light Italic */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neue Machina Plain';
+    src: url('./assets/fonts/PPNeueMachina-PlainRegular.otf') format('opentype');
+    font-weight: 400; /* Plain Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina Plain';
+    src: url('./assets/fonts/PPNeueMachina-PlainRegularItalic.otf') format('opentype');
+    font-weight: 400; /* Plain Regular Italic */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neue Machina Plain';
+    src: url('./assets/fonts/PPNeueMachina-PlainUltrabold.otf') format('opentype');
+    font-weight: 800; /* Plain Ultra Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Machina Plain';
+    src: url('./assets/fonts/PPNeueMachina-PlainUltraboldItalic.otf') format('opentype');
+    font-weight: 800; /* Plain Ultra Bold Italic */
+    font-style: italic;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Neue Machina', sans-serif;
+}

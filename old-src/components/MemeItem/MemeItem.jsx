@@ -16,8 +16,8 @@ const MemeItem = ({ meme }) => {
             )}
 
 
-                {/* {meme.fileType.toLowerCase() === 'image' && <img src={`https://minio-back.biluta.ru/${meme.filePath}`} alt="Meme" />} */}
-                {/* {meme.fileType.toLowerCase() === 'video' && <video autoplay muted loop><source src={`https://minio-back.biluta.ru/${meme.filePath}`} type="video/mp4" /></video>} */}
+                {/* {meme.fileType.toLowerCase() === 'image' && <img old-src={`https://minio-back.biluta.ru/${meme.filePath}`} alt="Meme" />} */}
+                {/* {meme.fileType.toLowerCase() === 'video' && <video autoplay muted loop><source old-src={`https://minio-back.biluta.ru/${meme.filePath}`} type="video/mp4" /></video>} */}
             </div>
         </div>
     );

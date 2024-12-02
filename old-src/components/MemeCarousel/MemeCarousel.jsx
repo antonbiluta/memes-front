@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import MemeItem from '../MemeItem/MemeItem'
-import { fetchMemes } from '../../services/api'
+import { fetchMemes } from '../../services/mediaApi'
 import './MemeCarousel.css'
 
 const MemeCarousel = ({ chatPrefix }) => {
